@@ -75,7 +75,7 @@ public static void main (String[] args) {
         System.out.println("Prime");
     } else {
         System.out.println("Composite");} */
-   /*Task-4
+   /* Task-4
     int f = Task4(n);
     System.out.println(f); */
     //Task-5
