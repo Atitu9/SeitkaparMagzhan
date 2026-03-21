@@ -30,3 +30,4 @@ Each time I print the last digit.</h5>
  <p>Task 10. Greatest Common Divisor (GCD)</p>
  <h5>I use Euclidean algorithm:I keep calling function with smaller numbers until second number becomes 0</h5>
 <img width="502" height="460" alt="Снимок экрана 2026-03-21 в 18 04 47" src="https://github.com/user-attachments/assets/2e8a4657-7616-4a76-861d-826b38d978aa" />
+<h5>I learned recursion by solving problems step by step. Each task used base cases and self-calls. Recursion helped me understand algorithms and think more logically and clearly.</h5>
