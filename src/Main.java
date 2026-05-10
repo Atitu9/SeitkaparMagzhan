@@ -1,30 +1,44 @@
-import java.util.Arrays;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Sorter sorter = new Sorter();
-        Searcher searcher = new Searcher();
-        Experiment experiment = new Experiment(sorter, searcher);
+        System.out.println("========================================");
+        System.out.println("  SMALL GRAPH DEMO  (10 vertices)       ");
+        System.out.println("========================================");
 
-        int[] demo = sorter.generateRandomArray(10);
-        int[] demoBasic = Arrays.copyOf(demo, demo.length);
-        int[] demoAdvanced = Arrays.copyOf(demo, demo.length);
+        Graph small = new Graph();
+        for (int i = 0; i < 10; i++) small.addVertex(new Vertex(i));
 
-        System.out.println("Demo array (size 10):");
-        sorter.printArray(demo);
+        int[][] edges = {{0,1},{0,2},{1,3},{1,4},{2,5},{2,6}, {3,7},{4,8},{5,9},{6,0},{7,1},{8,2},{9,3}
+        };
+        for (int[] e : edges) small.addEdge(e[0], e[1]);
+        small.printGraph();
+        System.out.println();
+        small.bfs(0);
+        small.dfs(0);
+        System.out.println();
 
-        sorter.basicSort(demoBasic);
-        System.out.println("After Bubble Sort:");
-        sorter.printArray(demoBasic);
-
-        sorter.advancedSort(demoAdvanced);
-        System.out.println("After Merge Sort:");
-        sorter.printArray(demoAdvanced);
-
-        int target = demoAdvanced[demoAdvanced.length / 2];
-        int index = searcher.search(demoAdvanced, target);
-        System.out.printf("Binary Search target %d found at index: %d%n%n", target, index);
-
-        experiment.runAllExperiments();
+        int[]    sizes  = {10, 30, 100};
+        String[] labels = {"Small  (10  vertices)", "Medium (30  vertices)", "Large  (100 vertices)"
+        };
+        Experiment experiment = new Experiment(sizes, labels);
+        experiment.runMultipleTests();
+        for (int i = 0; i < sizes.length; i++) {
+            Graph g = buildGraph(sizes[i], 42L);
+            experiment.runTraversals(g);
+        }
+        experiment.printResults();
+    }
+    private static Graph buildGraph(int size, long seed) {
+        Graph g    = new Graph();
+        Random rnd = new Random(seed);
+        for (int i = 0; i < size; i++) g.addVertex(new Vertex(i));
+        for (int i = 0; i < size; i++) {
+            for (int e = 0; e < 3; e++) {
+                int target = rnd.nextInt(size);
+                if (target != i) g.addEdge(i, target);
+            }
+        }
+        return g;
     }
 }
