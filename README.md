@@ -10,29 +10,22 @@
 <img width="493" height="200" alt="Снимок экрана 2026-05-10 в 12 30 14" src="https://github.com/user-attachments/assets/eedf7371-d854-4abd-b2eb-a84ffaa5e589" />
 
 # Analysis
-
 # How does graph size affect BFS and DFS performance?
 As graph size increases, execution time also increases because more vertices and edges must be processed
-
-## Which traversal is faster?
+# Which traversal is faster?
 text O(V + E) 
-
-## Do results match expected complexity?  
+# Do results match expected complexity?  
 text O(V + E) 
-
-## How does graph structure affect traversal order?
+# How does graph structure affect traversal order?
 adjacency list structure
 order of inserted edges
-
-## When is BFS preferred over DFS?
+# When is BFS preferred over DFS?
 shortest path is needed
 level-by-level traversal is required
-
 # What are limitations of DFS?
 go very deep into recursion
 use more stack memory
 risk stack overflow on very large graphs
-
 # Reflection
 In this assignment, I learned how graph traversal algorithms work and how graphs can be represented using adjacency lists
 I also learned the differences between BFS and DFS, including how BFS uses a queue while DFS uses recursion
